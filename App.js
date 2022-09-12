@@ -1,14 +1,68 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// import default components first , and spicify in {} for alternative 
 
-export default function App() {
+
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Button } from 'react-native';
+
+// import of custom components
+import CoolComponent  from "./My_Component";
+import ForLoops from "./Forloop-component";
+import FlatListUse from "./Flatlist-component";
+import FlatListExample from "./Flatlist-example";
+
+// import of navigation
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+/*
+function HomeScreenOld(){
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>Hello world</Text>
+      <CoolComponent input={"input text"}></CoolComponent>
+      <FlatListExample></FlatListExample>
       <StatusBar style="auto" />
     </View>
   );
 }
+*/
+
+function HomeScreen({ navigation }) {
+  return (
+    <View>
+      <Text>Home Screen</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
+      />
+    </View>
+  );
+}
+
+function DetailsScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+    </View>
+  );
+}
+
+
+// NAVIGATION
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Details" component={DetailsScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
+
 
 const styles = StyleSheet.create({
   container: {
