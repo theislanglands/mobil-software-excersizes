@@ -9,7 +9,6 @@ export default function HomeScreen({ navigation }) {
 
     // Fetch movie list when component is mounted
     useEffect(() => {
-        console.log("use effect");
         getMovies();
     }, []);
 
@@ -53,7 +52,7 @@ const Item = ({ navigation, name, movieId }) => (
         <Text
             onPress={() =>
                 navigation.navigate("Movies", {
-                    movieId,
+                    movieId, name,
                 })
             }
             style={styles.title}

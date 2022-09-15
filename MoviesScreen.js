@@ -3,9 +3,13 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Image, ScrollView } from 'react-native';
 import { FlatList } from "react-native-web";
 
-export default function MovieScreen({ navigation }) {
+export default function MovieScreen({ route, navigation }) {
 
     const [moviedata, setmovieData] = useState([]);
+
+    const {movieId, name} = route.params;
+    console.log(movieId);
+    console.log(name);
 
     // Get movieID from navigate function
    // const { genreId } = route.params;
@@ -22,6 +26,10 @@ export default function MovieScreen({ navigation }) {
         )
             .then((response) => response.json())
             .then((data) => setmovieData(data.results));
+    }
+
+    function getGenre() {
+
     }
 
     // Render function that returns the Item component
