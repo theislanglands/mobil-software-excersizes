@@ -14,20 +14,6 @@ import MovieDetailsScreen from "./Moviedetails";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-/*
-function HomeScreenOld(){
-
-  return (
-    <View style={styles.container}>
-      <Text>Hello world</Text>
-      <CoolComponent input={"input text"}></CoolComponent>
-      <FlatListExample></FlatListExample>
-      
-    </View>
-  );
-}
-*/
-
 
 // NAVIGATION
 const Stack = createNativeStackNavigator();
@@ -37,7 +23,7 @@ export default function App() {
     <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Details" component={MovieDetailsScreen} />
+            <Stack.Screen name="Movie Details" component={MovieDetailsScreen} />
         </Stack.Navigator>
     </NavigationContainer>
   )

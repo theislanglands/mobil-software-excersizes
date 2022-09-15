@@ -3,13 +3,12 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Image, ScrollView } from 'react-native';
 import { FlatList } from "react-native-web";
 
-export default function HomeScreen({ navigation }) {
+export default function MovieScreen({ navigation }) {
 
     const [moviedata, setmovieData] = useState([]);
 
     // Fetch movie list when component is mounted
     useEffect(() => {
-        console.log("use effect");
         getMovies();
     }, []);
 
@@ -34,7 +33,7 @@ export default function HomeScreen({ navigation }) {
                 style={{ width: 600, height: 400 }}
             />
 
-            <Text>Your companion in finding whats most popular right now</Text>
+            <Text>Popular movies right now</Text>
             <FlatList
                 data={moviedata}
                 renderItem={renderItem}
