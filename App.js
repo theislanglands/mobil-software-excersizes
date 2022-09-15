@@ -8,6 +8,7 @@ import ForLoops from "./Forloop-component";
 import FlatListUse from "./Flatlist-component";
 import FlatListExample from "./Flatlist-example";
 import HomeScreen from "./Homescreen";
+import MovieDetailsScreen from "./Moviedetails";
 
 // import of navigation
 import { NavigationContainer } from '@react-navigation/native';
@@ -21,36 +22,11 @@ function HomeScreenOld(){
       <Text>Hello world</Text>
       <CoolComponent input={"input text"}></CoolComponent>
       <FlatListExample></FlatListExample>
-      <StatusBar style="auto" />
+      
     </View>
   );
 }
 */
-/*
-function HomeScreen({ navigation }) {
-  
-  console.log(process.env);
-
-  return (
-    <View>
-      <Text>Home Screen</Text>
-      <Text>API key {process.env.API_KEY}</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
-    </View>
-  );
-}
-*/
-
-function DetailsScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-    </View>
-  );
-}
 
 
 // NAVIGATION
@@ -61,7 +37,7 @@ export default function App() {
     <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Details" component={DetailsScreen} />
+            <Stack.Screen name="Details" component={MovieDetailsScreen} />
         </Stack.Navigator>
     </NavigationContainer>
   )

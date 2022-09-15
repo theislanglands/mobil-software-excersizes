@@ -20,8 +20,15 @@ export default function HomeScreen({ navigation }) {
             <Text>Home Screen component</Text>
             <Button
                 title="Go to Details"
-                onPress={() => navigation.navigate('Details')}
-            />
+                onPress={() => navigation.navigate('Details')}/>
+            <StatusBar style="auto" />
         </View>
     );
+
+    /*
+    Component to control the app's status bar. 
+    The status bar is the zone, typically at the top of the screen, 
+    that displays the current time, Wi-Fi and cellular network information, 
+    battery level and/or other status icons.
+    */
 }
