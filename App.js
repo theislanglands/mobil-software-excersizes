@@ -1,6 +1,4 @@
 // import default components first , and spicify in {} for alternative 
-
-
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
@@ -9,6 +7,7 @@ import CoolComponent  from "./My_Component";
 import ForLoops from "./Forloop-component";
 import FlatListUse from "./Flatlist-component";
 import FlatListExample from "./Flatlist-example";
+import HomeScreen from "./Homescreen";
 
 // import of navigation
 import { NavigationContainer } from '@react-navigation/native';
@@ -27,11 +26,15 @@ function HomeScreenOld(){
   );
 }
 */
-
+/*
 function HomeScreen({ navigation }) {
+  
+  console.log(process.env);
+
   return (
     <View>
       <Text>Home Screen</Text>
+      <Text>API key {process.env.API_KEY}</Text>
       <Button
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
@@ -39,6 +42,7 @@ function HomeScreen({ navigation }) {
     </View>
   );
 }
+*/
 
 function DetailsScreen() {
   return (
