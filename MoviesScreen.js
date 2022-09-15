@@ -32,7 +32,7 @@ export default function MovieScreen({ route, navigation }) {
         <View>
             <Image
                 source={require('./assets/FilmGuruLogo.png')}
-                style={{ width: 600, height: 400 }}
+                style={{ width: 600, height: 300 }}
             />
 
             <Text>Popular {name} movies right now</Text>

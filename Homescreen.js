@@ -30,7 +30,7 @@ export default function HomeScreen({ navigation }) {
         <View>
             <Image
                 source={require('./assets/FilmGuruLogo.png')}
-                style={{ width: 600, height: 400 }}
+                style={{ width: 600, height: 300 }}
             />
 
             <Text>Your companion in finding whats most popular right now</Text>
