@@ -6,13 +6,7 @@ import { FlatList } from "react-native-web";
 export default function MovieScreen({ route, navigation }) {
 
     const [moviedata, setmovieData] = useState([]);
-
-    const {movieId, name} = route.params;
-    console.log(movieId);
-    console.log(name);
-
-    // Get movieID from navigate function
-   // const { genreId } = route.params;
+    const {genreId, name} = route.params;
 
     // Fetch movie list when component is mounted
     useEffect(() => {
@@ -22,15 +16,12 @@ export default function MovieScreen({ route, navigation }) {
     // Function to fetch movie list
     function getMovies() {
         fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=c91afe4096b39d47ada91b74ed374b93&language=en-US&page=1`
+            `https://api.themoviedb.org/3/discover/movie?api_key=c91afe4096b39d47ada91b74ed374b93&with_genres=${genreId}`
         )
             .then((response) => response.json())
             .then((data) => setmovieData(data.results));
     }
 
-    function getGenre() {
-
-    }
 
     // Render function that returns the Item component
     const renderItem = ({ item }) => (
@@ -44,7 +35,7 @@ export default function MovieScreen({ route, navigation }) {
                 style={{ width: 600, height: 400 }}
             />
 
-            <Text>Popular movies right now</Text>
+            <Text>Popular {name} movies right now</Text>
             <FlatList
                 data={moviedata}
                 renderItem={renderItem}

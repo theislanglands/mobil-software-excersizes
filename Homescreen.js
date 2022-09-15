@@ -5,7 +5,7 @@ import { FlatList } from "react-native-web";
 
 export default function HomeScreen({ navigation }) {
 
-    const [moviedata, setmovieData] = useState([]);
+    const [genredata, setgenredata] = useState([]);
 
     // Fetch movie list when component is mounted
     useEffect(() => {
@@ -18,12 +18,12 @@ export default function HomeScreen({ navigation }) {
             `https://api.themoviedb.org/3/genre/movie/list?api_key=c91afe4096b39d47ada91b74ed374b93&page=1`
         )
             .then((response) => response.json())
-            .then((data) => setmovieData(data.genres));
+            .then((data) => setgenredata(data.genres));
     }
 
     // Render function that returns the Item component
     const renderItem = ({ item }) => (
-        <Item navigation={navigation} movieId={item.id} name={item.name} />
+        <Item navigation={navigation} genreId={item.id} name={item.name} />
     );
 
     return (
@@ -36,7 +36,7 @@ export default function HomeScreen({ navigation }) {
             <Text>Your companion in finding whats most popular right now</Text>
 
             <FlatList
-                data={moviedata}
+                data={genredata}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id}
                 numColumns={5}
@@ -47,12 +47,12 @@ export default function HomeScreen({ navigation }) {
     );
 }
 
-const Item = ({ navigation, name, movieId }) => (
+const Item = ({ navigation, name, genreId }) => (
     <View style={styles.item}>
         <Text
             onPress={() =>
                 navigation.navigate("Movies", {
-                    movieId, name,
+                    genreId, name,
                 })
             }
             style={styles.title}
