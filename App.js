@@ -9,6 +9,7 @@ import FlatListUse from "./Flatlist-component";
 import FlatListExample from "./Flatlist-example";
 import HomeScreen from "./Homescreen";
 import MovieDetailsScreen from "./Moviedetails";
+import MoviesScreen from "./MoviesScreen";
 
 // import of navigation
 import { NavigationContainer } from '@react-navigation/native';
@@ -24,6 +25,7 @@ export default function App() {
         <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Movie Details" component={MovieDetailsScreen} />
+            <Stack.Screen name="Movies" component={MoviesScreen} />
         </Stack.Navigator>
     </NavigationContainer>
   )

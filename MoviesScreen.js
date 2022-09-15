@@ -7,6 +7,9 @@ export default function MovieScreen({ navigation }) {
 
     const [moviedata, setmovieData] = useState([]);
 
+    // Get movieID from navigate function
+   // const { genreId } = route.params;
+
     // Fetch movie list when component is mounted
     useEffect(() => {
         getMovies();

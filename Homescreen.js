@@ -16,15 +16,15 @@ export default function HomeScreen({ navigation }) {
     // Function to fetch movie list
     function getMovies() {
         fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=c91afe4096b39d47ada91b74ed374b93&language=en-US&page=1`
+            `https://api.themoviedb.org/3/genre/movie/list?api_key=c91afe4096b39d47ada91b74ed374b93&page=1`
         )
             .then((response) => response.json())
-            .then((data) => setmovieData(data.results));
+            .then((data) => setmovieData(data.genres));
     }
 
     // Render function that returns the Item component
     const renderItem = ({ item }) => (
-        <Item navigation={navigation} movieId={item.id} title={item.title} />
+        <Item navigation={navigation} movieId={item.id} name={item.name} />
     );
 
     return (
@@ -35,31 +35,30 @@ export default function HomeScreen({ navigation }) {
             />
 
             <Text>Your companion in finding whats most popular right now</Text>
+
             <FlatList
                 data={moviedata}
                 renderItem={renderItem}
-                scrollEnabled={true}
                 keyExtractor={(item) => item.id}
+                numColumns={5}
+
             />
-            <Button
-                title="Go to Details"
-                onPress={() => navigation.navigate('Movie Details')} />
             <StatusBar style="auto" />
         </View>
     );
 }
 
-const Item = ({ navigation, title, movieId }) => (
+const Item = ({ navigation, name, movieId }) => (
     <View style={styles.item}>
         <Text
             onPress={() =>
-                navigation.navigate("Movie Details", {
+                navigation.navigate("Movies", {
                     movieId,
                 })
             }
             style={styles.title}
         >
-            {title}
+            {name}
         </Text>
     </View>
 );
@@ -77,6 +76,6 @@ const styles = StyleSheet.create({
       marginHorizontal: 16,
     },
     title: {
-      fontSize: 16,
+      fontSize: 12,
     },
   });
