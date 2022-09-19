@@ -9,7 +9,7 @@ export default function MovieDetails({ route }) {
     const [detailData, setdetailData] = useState({});
     var [year, setYear] = useState();
     const [crew, setCrew] = useState({})
-    
+
 
     // Get movieID from navigate function
     const { movieId } = route.params;
@@ -44,7 +44,7 @@ export default function MovieDetails({ route }) {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>{detailData.title} {year}</Text>
-            <Text>Instructor {crew.</Text>
+            <Text>Instructor</Text>
             <Image
                 style={styles.image}
                 source={{

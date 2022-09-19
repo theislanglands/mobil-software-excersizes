@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Image, ScrollView } from 'react-native';
 import { FlatList } from "react-native-web";
+import { KeyProvider } from "./context/Key";
 
 export default function HomeScreen({ navigation }) {
 
-    const [genredata, setgenredata] = useState([]);
-
-    console.log(process.env.REACT_APP_API_KEY);
-    console.log(process.env.TEST);
-
+    const [genredata, setgenredata] = useState([]);    
+    const {key} = useContext(KeyProvider)
+    //console.log(key);
 
     // Fetch movie list when component is mounted
     useEffect(() => {
