@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Image, ScrollView } from 'react-native';
 import { FlatList } from "react-native-web";
+import Logo from "./Logo";
+
 
 export default function MovieScreen({ route, navigation }) {
 
@@ -30,12 +32,10 @@ export default function MovieScreen({ route, navigation }) {
 
     return (
         <View>
-            <Image
-                source={require('./assets/FilmGuruLogo.png')}
-                style={{ width: 600, height: 300 }}
-            />
+            <Logo></Logo>
 
-            <Text>Popular {name} movies right now</Text>
+            <Text style={styles.header}>Most popular {name} movies right now</Text>
+            <Text style={styles.choice}>Click on title for details</Text>
             <FlatList
                 data={moviedata}
                 renderItem={renderItem}
@@ -47,33 +47,46 @@ export default function MovieScreen({ route, navigation }) {
 }
 
 const Item = ({ navigation, title, movieId }) => (
-    <View style={styles.item}>
+    <View style={styles.itembox}>
         <Text
             onPress={() =>
                 navigation.navigate("Movie Details", {
                     movieId,
                 })
             }
-            style={styles.title}
+            style={styles.itemtext}
         >
             {title}
         </Text>
     </View>
 );
 
-const styles = StyleSheet.create({
+
+
+  const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: "#fff",
-      justifyContent: "center",
+        flex: 1,
+        backgroundColor: '#FFFFFF',
+        justifyContent: "center",
     },
-    item: {
-      backgroundColor: "#EEE",
-      padding: 20,
-      marginVertical: 8,
-      marginHorizontal: 16,
+    itembox: {
+        backgroundColor: "#cc6600",
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderRadius: 6
     },
-    title: {
-      fontSize: 16,
+    itemtext: {
+        fontSize: 26,
+        color: "#FFFFFF"
     },
-  });
+    header: {
+        fontSize: 32,
+        textAlign: 'center',
+        marginVertical: 20,
+    },
+    choice: {
+        fontSize: 20,
+        textAlign: 'center',
+    },
+});
