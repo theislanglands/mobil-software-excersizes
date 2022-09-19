@@ -42,10 +42,6 @@ export default function MovieScreen({ route, navigation }) {
                 scrollEnabled={true}
                 keyExtractor={(item) => item.id}
             />
-            <Button
-                title="Go to Details"
-                onPress={() => navigation.navigate('Movie Details')} />
-            <StatusBar style="auto" />
         </View>
     );
 }

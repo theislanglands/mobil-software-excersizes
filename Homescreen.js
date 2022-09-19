@@ -7,6 +7,10 @@ export default function HomeScreen({ navigation }) {
 
     const [genredata, setgenredata] = useState([]);
 
+    console.log(process.env.REACT_APP_API_KEY);
+    console.log(process.env.TEST);
+
+
     // Fetch movie list when component is mounted
     useEffect(() => {
         getMovies();
