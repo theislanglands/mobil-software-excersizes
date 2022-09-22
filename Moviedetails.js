@@ -11,7 +11,7 @@ export default function MovieDetails({ route }) {
     const [crew, setCrew] = useState({})
     
 
-    // Get movieID from navigate function
+    //git Get movieID from navigate function
     const { movieId } = route.params;
 
     // When this component is mounted then fire the getDetails function
