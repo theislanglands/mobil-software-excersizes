@@ -11,6 +11,7 @@ export default function MovieDetails({ route }) {
     // State holding movie detailData.
     const [detailData, setdetailData] = useState({});
     var [year, setYear] = useState();
+    //const {api_key} = useContext(Key.js)
     /* 
     const [crew, setCrew] = useState({});
     const [cast, setCast] = useState({});
