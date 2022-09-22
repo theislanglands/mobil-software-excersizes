@@ -2,9 +2,8 @@ import React, { Component, useEffect, useState } from "react";
 
 const KeyContext = React.createContext({});
 
-
 const KeyProvider = ({ children }) => {
-    const [key, setKey] = useState("c91afe4096b39d47ada91b74ed374b93")
+    const [key, setKey] = useState("api")
 
     return (
         <KeyContext.Provider
@@ -12,10 +11,10 @@ const KeyProvider = ({ children }) => {
                 key,
                 setKey,
             }}
-        >{children}</KeyContext.Provider>
-    )
-    
-}
+        >
+            {children}
+        </KeyContext.Provider>);
+};
 
 export default KeyContext;
 export { KeyProvider };

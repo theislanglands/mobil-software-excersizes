@@ -1,22 +1,12 @@
-// import default components first , and spicify in {} for alternative 
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-
-// import of custom components
-import CoolComponent from "./My_Component";
-import ForLoops from "./Forloop-component";
-import FlatListUse from "./Flatlist-component";
-import FlatListExample from "./Flatlist-example";
-import HomeScreen from "./Homescreen";
-import MovieDetailsScreen from "./Moviedetails";
-import MoviesScreen from "./MoviesScreen";
-import {KeyProvider} from "./context/Key";
-
-
 // import of navigation
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+// import of custom components
+import HomeScreen from "./Homescreen";
+import MovieDetailsScreen from "./Moviedetails";
+import MoviesScreen from "./MoviesScreen";
+pusimport KeyProvider from "./context/Key";
 
 // NAVIGATION
 const Stack = createNativeStackNavigator();
@@ -34,13 +24,3 @@ export default function App() {
     </NavigationContainer>
   )
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

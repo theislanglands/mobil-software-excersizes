@@ -8,8 +8,8 @@ import Logo from "./Logo";
 export default function HomeScreen({ navigation }) {
 
     const [genredata, setgenredata] = useState([]);
-    //const {key} = useContext(KeyProvider)
-    //console.log(key);
+    const {key, setKey} = useContext(KeyProvider)
+    console.log(key);
 
     // Fetch movie list when component is mounted
     useEffect(() => {
